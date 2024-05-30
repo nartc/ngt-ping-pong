@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, CUSTOM_ELEMENTS_SCHEMA, inject, input } from '@angular/core';
 import { injectNgtLoader } from 'angular-three';
 import { FontLoader, TextGeometry } from 'three-stdlib';
-import { PingPongApi } from './ping-pong-api';
+import { Game } from './game';
 
 @Component({
 	selector: 'app-text',
@@ -11,7 +11,7 @@ import { PingPongApi } from './ping-pong-api';
 		@if (geometries(); as geometries) {
 			<ngt-group [rotation]="rotation()" [position]="position()" [dispose]="null">
 				@for (char of chars(); track $index) {
-					<ngt-mesh [position]="[-(chars().length / 2) * 3.5 + $index * 3.5, 0, 0]" [geometry]="geometries[char]">
+					<ngt-mesh [position]="[char.x, 0, 0]" [geometry]="geometries[char.glyph]">
 						<ngt-mesh-basic-material [color]="color()" [opacity]="0.5" transparent />
 					</ngt-mesh>
 				}
@@ -21,7 +21,7 @@ import { PingPongApi } from './ping-pong-api';
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Text {
-	private pingPongApi = inject(PingPongApi);
+	private game = inject(Game);
 	private fontData = injectNgtLoader(
 		() => FontLoader,
 		() => './firasans_regular.json',
@@ -38,7 +38,10 @@ export class Text {
 	rotation = input([0, 0, 0]);
 	color = input('white');
 
-	chars = computed(() => {
-		return [...this.pingPongApi.count().toString()].map((char) => parseInt(char));
-	});
+	chars = computed(() =>
+		[...this.game.count().toString()].map((char, index, arr) => ({
+			x: -(arr.length / 2) * 3.5 + index * 3.5,
+			glyph: parseInt(char),
+		})),
+	);
 }

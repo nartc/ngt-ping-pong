@@ -14,7 +14,7 @@ import { injectNgtsGLTFLoader } from 'angular-three-soba/loaders';
 import lerp from 'lerp';
 import { Group, Material, Mesh, Object3D, Skeleton } from 'three';
 import { GLTF } from 'three-stdlib';
-import { PingPongApi } from './ping-pong-api';
+import { Game } from './game';
 import { Text } from './text';
 
 type PingPongGLTF = GLTF & {
@@ -90,11 +90,11 @@ type PingPongGLTF = GLTF & {
 })
 export class Paddle {
 	protected Math = Math;
-	protected pingPongApi = inject(PingPongApi);
+	protected game = inject(Game);
 
 	protected paddle = injectBody('Box', () => ({
 		args: [3.4, 1, 3],
-		onCollide: (e) => this.pingPongApi.pong(e.contact.impactVelocity),
+		onCollide: (e) => this.game.pong(e.contact.impactVelocity),
 		type: 'Kinematic',
 	}));
 
@@ -117,11 +117,7 @@ export class Paddle {
 			this.paddle.api.position.set(pointer.x * 10, pointer.y * 5, 0);
 			this.paddle.api.rotation.set(0, 0, values[1]);
 			if (!model) return;
-			model.nativeElement.rotation.x = lerp(
-				model.nativeElement.rotation.x,
-				this.pingPongApi.welcome() ? Math.PI / 2 : 0,
-				0.2,
-			);
+			model.nativeElement.rotation.x = lerp(model.nativeElement.rotation.x, this.game.isIdle() ? Math.PI / 2 : 0, 0.2);
 			model.nativeElement.rotation.y = values[0];
 		});
 	}

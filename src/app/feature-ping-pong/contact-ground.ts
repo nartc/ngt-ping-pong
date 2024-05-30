@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { injectBody } from 'angular-three-cannon/body';
-import { PingPongApi } from './ping-pong-api';
+import { Game } from './game';
 
 @Component({
 	selector: 'app-contact-ground',
@@ -12,9 +12,9 @@ import { PingPongApi } from './ping-pong-api';
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ContactGround {
-	private pingPongApi = inject(PingPongApi);
+	private game = inject(Game);
 	protected ground = injectBody('Plane', () => ({
-		onCollide: () => this.pingPongApi.reset(true),
+		onCollide: () => this.game.gameOver(),
 		position: [0, -10, 0],
 		rotation: [-Math.PI / 2, 0, 0],
 		type: 'Static',
