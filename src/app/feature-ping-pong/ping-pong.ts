@@ -5,7 +5,9 @@ import * as THREE from 'three';
 import { Ball } from './ball';
 import { ContactGround } from './contact-ground';
 import { Game } from './game';
+import { Lights } from './lights';
 import { Paddle } from './paddle';
+import { Wall } from './wall';
 
 extend(THREE);
 
@@ -13,13 +15,9 @@ extend(THREE);
 	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	template: `
-		<ngt-color *args="['#171720']" attach="background" />
-		<ngt-ambient-light [intensity]="0.5 * Math.PI" />
-		<ngt-point-light [decay]="0" [intensity]="Math.PI" [position]="-10" />
-		<ngt-spot-light castShadow [angle]="0.3" [decay]="0" [intensity]="Math.PI" [penumbra]="1" [position]="10">
-			<ngt-vector2 *args="[2048, 2048]" attach="shadow.mapSize" />
-			<ngt-value [rawValue]="-0.0001" attach="shadow.bias" />
-		</ngt-spot-light>
+		<app-lights />
+		<app-wall />
+
 		<ngtc-physics
 			[iterations]="20"
 			[tolerance]="0.0001"
@@ -35,11 +33,6 @@ extend(THREE);
 			[allowSleep]="false"
 		>
 			<ng-template physicsContent>
-				<ngt-mesh [position]="[0, 0, -10]" receiveShadow>
-					<ngt-plane-geometry *args="[1000, 1000]" />
-					<ngt-mesh-phong-material color="#172017" />
-				</ngt-mesh>
-
 				<app-contact-ground />
 
 				@if (game.isPlaying()) {
@@ -50,11 +43,10 @@ extend(THREE);
 			</ng-template>
 		</ngtc-physics>
 	`,
-	imports: [NgtArgs, NgtcPhysics, NgtcPhysicsContent, Ball, Paddle, ContactGround],
+	imports: [NgtArgs, NgtcPhysics, NgtcPhysicsContent, Ball, Paddle, ContactGround, Wall, Lights],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Experience {
-	protected Math = Math;
 	protected game = inject(Game);
 }
 
@@ -65,8 +57,8 @@ export class Experience {
 		<ngt-canvas
 			[sceneGraph]="scene"
 			[camera]="{ fov: 50, position: [0, 5, 12] }"
-			shadows
 			(pointerMissed)="game.start()"
+			shadows
 		/>
 	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,

@@ -20,6 +20,7 @@ export class Ball {
 	protected map = injectNgtsTextureLoader(() => './cross.jpg');
 	protected ball = injectBody('Sphere', () => ({
 		mass: 1,
+		args: [0.5],
 		position: [0, 5, 0],
 	}));
 }
