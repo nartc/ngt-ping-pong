@@ -8,12 +8,6 @@ import { PingPong } from './feature-ping-pong/ping-pong';
 	template: `
 		<app-ping-pong />
 	`,
-	styles: `
-		:host {
-			display: block;
-			height: 100%;
-		}
-	`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}
