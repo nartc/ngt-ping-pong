@@ -39,7 +39,7 @@ export class Text {
 	color = input('white');
 
 	chars = computed(() =>
-		[...this.game.count().toString()].map((char, index, arr) => ({
+		[...this.game.score().toString()].map((char, index, arr) => ({
 			x: -(arr.length / 2) * 3.5 + index * 3.5,
 			glyph: parseInt(char),
 		})),
