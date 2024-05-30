@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PingPong } from './feature-ping-pong/ping-pong';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet],
+	imports: [PingPong],
 	template: `
-		<h1>Welcome to {{ title }}!</h1>
-
-		<router-outlet />
+		<app-ping-pong />
 	`,
-	styles: [],
+	styles: `
+		:host {
+			display: block;
+			height: 100%;
+		}
+	`,
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-	title = 'ngt-ping-pong';
-}
+export class AppComponent {}

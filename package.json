@@ -17,10 +17,17 @@
 		"@angular/platform-browser": "^18.0.0",
 		"@angular/platform-browser-dynamic": "^18.0.0",
 		"@angular/router": "^18.0.0",
+		"@pmndrs/cannon-worker-api": "^2.4.0",
 		"angular-three": "^2.0.0-beta.227",
+		"angular-three-cannon": "^2.0.0-beta.227",
+		"angular-three-soba": "^2.0.0-beta.227",
+		"cannon-es": "^0.20.0",
+		"cannon-es-debugger": "^1.0.0",
+		"lerp": "^1.0.3",
 		"ngxtension": "^3.4.0",
 		"rxjs": "~7.8.0",
 		"three": "^0.164.1",
+		"three-stdlib": "^2.30.2",
 		"tslib": "^2.3.0",
 		"zone.js": "~0.14.3"
 	},
@@ -38,6 +45,7 @@
 		"semi": true,
 		"useTabs": true,
 		"tabWidth": 2,
+		"printWidth": 120,
 		"htmlWhitespaceSensitivity": "ignore",
 		"plugins": [
 			"prettier-plugin-organize-imports"
