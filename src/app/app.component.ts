@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
+	selector: 'app-root',
+	standalone: true,
+	imports: [RouterOutlet],
+	template: `
+		<h1>Welcome to {{ title }}!</h1>
 
-    <router-outlet />
-  `,
-  styles: [],
+		<router-outlet />
+	`,
+	styles: [],
 })
 export class AppComponent {
-  title = 'ngt-ping-pong';
+	title = 'ngt-ping-pong';
 }
