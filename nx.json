@@ -1,0 +1,18 @@
+{
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"targetDefaults": {
+		"build": {
+			"cache": true,
+			"dependsOn": ["^build"],
+			"inputs": ["production", "^production"]
+		}
+	},
+	"defaultBase": "main",
+	"namedInputs": {
+		"sharedGlobals": [],
+		"default": ["{projectRoot}/**/*", "sharedGlobals"],
+		"production": ["default"]
+	},
+	"nxCloudAccessToken": "Zjk1NDAyZDYtMjVjZS00N2RhLTkzNTMtYWZiMmY5Yzk3ODgwfHJlYWQtd3JpdGU=",
+	"nxCloudUrl": "http://localhost:4203"
+}

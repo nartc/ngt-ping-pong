@@ -1,54 +1,60 @@
 {
-	"name": "ngt-ping-pong",
-	"version": "0.0.0",
-	"scripts": {
-		"ng": "ng",
-		"start": "ng serve",
-		"build": "ng build",
-		"watch": "ng build --watch --configuration development"
-	},
-	"private": true,
-	"dependencies": {
-		"@angular/animations": "^18.0.0",
-		"@angular/common": "^18.0.0",
-		"@angular/compiler": "^18.0.0",
-		"@angular/core": "^18.0.0",
-		"@angular/forms": "^18.0.0",
-		"@angular/platform-browser": "^18.0.0",
-		"@angular/platform-browser-dynamic": "^18.0.0",
-		"@angular/router": "^18.0.0",
-		"@pmndrs/cannon-worker-api": "^2.4.0",
-		"angular-three": "^2.0.0-beta.230",
-		"angular-three-cannon": "^2.0.0-beta.230",
-		"angular-three-soba": "^2.0.0-beta.230",
-		"cannon-es": "^0.20.0",
-		"cannon-es-debugger": "^1.0.0",
-		"lerp": "^1.0.3",
-		"ngxtension": "^3.4.0",
-		"rxjs": "~7.8.0",
-		"three": "^0.164.1",
-		"three-stdlib": "^2.30.2",
-		"tslib": "^2.3.0",
-		"zone.js": "~0.14.3"
-	},
-	"devDependencies": {
-		"@angular-devkit/build-angular": "^18.0.2",
-		"@angular/cli": "^18.0.2",
-		"@angular/compiler-cli": "^18.0.0",
-		"@types/three": "^0.164.1",
-		"prettier": "^3.2.5",
-		"prettier-plugin-organize-imports": "^3.2.4",
-		"typescript": "~5.4.2"
-	},
-	"prettier": {
-		"singleQuote": true,
-		"semi": true,
-		"useTabs": true,
-		"tabWidth": 2,
-		"printWidth": 120,
-		"htmlWhitespaceSensitivity": "ignore",
-		"plugins": [
-			"prettier-plugin-organize-imports"
-		]
-	}
+  "name": "ngt-ping-pong",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "nx serve",
+    "build": "nx build",
+    "watch": "nx build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
+    "@pmndrs/cannon-worker-api": "^2.4.0",
+    "angular-three": "^2.0.0-beta.230",
+    "angular-three-cannon": "^2.0.0-beta.230",
+    "angular-three-soba": "^2.0.0-beta.230",
+    "cannon-es": "^0.20.0",
+    "cannon-es-debugger": "^1.0.0",
+    "lerp": "^1.0.3",
+    "ngxtension": "^3.4.0",
+    "rxjs": "~7.8.0",
+    "three": "^0.164.1",
+    "three-stdlib": "^2.30.2",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.2",
+    "@angular-devkit/core": "^18.0.2",
+    "@angular-devkit/schematics": "^18.0.2",
+    "@angular/cli": "^18.0.2",
+    "@angular/compiler-cli": "^18.0.0",
+    "@nx/angular": "19.1.1",
+    "@nx/workspace": "19.1.1",
+    "@schematics/angular": "^18.0.2",
+    "@types/three": "^0.164.1",
+    "nx": "19.1.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "typescript": "~5.4.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "useTabs": true,
+    "tabWidth": 2,
+    "printWidth": 120,
+    "htmlWhitespaceSensitivity": "ignore",
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
+  }
 }
